@@ -59,13 +59,19 @@ namespace Perihelion
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
-        Vector2 getPosition (){
+        public Vector2 getPosition ()
+        {
             return position;
         }
 
-        Vector2 getVelocity()
+        public Vector2 getVelocity()
         {
             return this.velocity;
+        }
+
+        public Texture2D getTexture()
+        {
+            return texture;
         }
 
         /************************************************************************/
