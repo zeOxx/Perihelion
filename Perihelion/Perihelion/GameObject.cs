@@ -25,11 +25,6 @@ namespace Perihelion
             setDirection(direction);
         }
 
-        ~GameObject ()
-        {
-
-        }
-
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
@@ -49,6 +44,48 @@ namespace Perihelion
         }
 
         void setDirection (int direction)
+        {
+            this.direction = direction;
+        }
+
+        /************************************************************************/
+        /*                                                                      */
+        /************************************************************************/
+        Vector2 getPosition (){
+            return position;
+        }
+
+        float getVelocity()
+        {
+            return this.velocity;
+        }
+        
+        int getDirection ()
+        {
+            return this.direction;
+        }
+
+        /************************************************************************/
+        /*                                                                      */
+        /************************************************************************/
+        void update (float x, float y, float velocity, int direction)
+        {
+            updatePosition(x, y);
+            updateVelocity(velocity);
+            updateDirection(direction);
+        }
+
+        void updatePosition(float x, float y)
+        {
+            this.position = new Vector2(x, y);
+        }
+
+        void updateVelocity(float velocity)
+        {
+            this.velocity = velocity;
+        }
+
+        void updateDirection(int direction)
         {
             this.direction = direction;
         }
