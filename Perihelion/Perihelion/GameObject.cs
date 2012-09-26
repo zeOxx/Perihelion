@@ -9,20 +9,18 @@ namespace Perihelion
 {
     class GameObject
     {
-        public Texture2D texture;
-        public Vector2 position = new Vector2();
-        public float velocity;
-        public int direction;
+        private Texture2D texture;
+        private Vector2 position = new Vector2();
+        private Vector2 velocity;
 
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
-        public GameObject (Texture2D texture, float x, float y, float velocity, int direction)
+        public GameObject (Texture2D texture, float x, float y, Vector2 velocity)
         {
             setTexture(texture);
             setPosition(x, y);
             setVelocity(velocity);
-            setDirection(direction);
         }
 
         /************************************************************************/
@@ -38,14 +36,9 @@ namespace Perihelion
             this.position = new Vector2(x, y);
         }
 
-        void setVelocity (float velocity)
+        void setVelocity (Vector2 velocity)
         {
             this.velocity = velocity;
-        }
-
-        void setDirection (int direction)
-        {
-            this.direction = direction;
         }
 
         /************************************************************************/
@@ -55,24 +48,18 @@ namespace Perihelion
             return position;
         }
 
-        float getVelocity()
+        Vector2 getVelocity()
         {
             return this.velocity;
-        }
-        
-        int getDirection ()
-        {
-            return this.direction;
         }
 
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
-        void update (float x, float y, float velocity, int direction)
+        void update (float x, float y, Vector2 velocity)
         {
             updatePosition(x, y);
             updateVelocity(velocity);
-            updateDirection(direction);
         }
 
         void updatePosition(float x, float y)
@@ -80,14 +67,9 @@ namespace Perihelion
             this.position = new Vector2(x, y);
         }
 
-        void updateVelocity(float velocity)
+        void updateVelocity(Vector2 velocity)
         {
             this.velocity = velocity;
-        }
-
-        void updateDirection(int direction)
-        {
-            this.direction = direction;
         }
     }
 }
