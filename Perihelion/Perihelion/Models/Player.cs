@@ -9,26 +9,33 @@ namespace Perihelion
 {
     class Player : GameObject
     {
-        private float gravity;
+        private float wellStrength;
+        private bool wellStatus;
         private int currentHealth;
         private int maxHealth;
 
         /************************************************************************/
         /*  Constructor for Player object                                       */
         /************************************************************************/
-        public Player(Texture2D texture, float x, float y, Vector2 velocity, float gravity, int currentHealth, int maxHealth)
+        public Player(Texture2D texture, float x, float y, Vector2 velocity, float wellStrength, int currentHealth, int maxHealth)
             : base(texture, x, y, velocity)
         {
-            setGravity(gravity);
+            setWellStrength(wellStrength);
+            setWellStatus(false);
             setHealth(currentHealth, maxHealth);
         }
 
         /************************************************************************/
         /*  Set functions for Player attributes                                 */
         /************************************************************************/
-        void setGravity(float gravity)
+        void setWellStrength(float wellStrength)
         {
-            this.gravity = gravity;
+            this.wellStrength = wellStrength;
+        }
+
+        void setWellStatus(bool wellStatus)
+        {
+            this.wellStatus = wellStatus;
         }
 
         void setHealth(int currentHealth, int maxHealth)
@@ -40,11 +47,15 @@ namespace Perihelion
         /************************************************************************/
         /*  Get functions for Player attributes                                 */
         /************************************************************************/
-        float getGravity()
+        float getWellStrength()
         {
-            return this.gravity;
+            return this.wellStrength;
         }
 
+        bool getWellStatus()
+        {
+            return wellStatus;
+        }
         int getCurrentHealth()
         {
             return this.currentHealth;
