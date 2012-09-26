@@ -76,6 +76,13 @@ namespace Perihelion
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            // Stores the keyboardstate in a variable
+            KeyboardState keyboard = Keyboard.GetState();
+
+            // Exits the game when ESC is pressed
+            if (keyboard.IsKeyDown(Keys.Escape))
+                Exit();
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -87,7 +94,7 @@ namespace Perihelion
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
