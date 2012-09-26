@@ -24,6 +24,21 @@ namespace Perihelion
         }
 
         /************************************************************************/
+        /*  Creates a boundingbox based on the texture                          */
+        /************************************************************************/
+        public Rectangle BoundingBox
+        {
+            get
+            {
+                return new Rectangle(
+                    (int)position.X,
+                    (int)position.Y,
+                    texture.Width,
+                    texture.Height);
+            }
+        }
+
+        /************************************************************************/
         /*                                                                      */
         /************************************************************************/
         void setTexture (Texture2D texture)
