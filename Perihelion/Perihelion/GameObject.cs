@@ -9,9 +9,9 @@ namespace Perihelion
 {
     class GameObject
     {
-        private Texture2D texture;
-        private Vector2 position = new Vector2();
-        private Vector2 velocity;
+        protected Texture2D texture;
+        protected Vector2 position = new Vector2();
+        protected Vector2 velocity;
 
         /************************************************************************/
         /*                                                                      */
