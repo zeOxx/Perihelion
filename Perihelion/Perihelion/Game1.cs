@@ -20,7 +20,7 @@ namespace Perihelion
         SpriteBatch spriteBatch;
 
         private int height = 720;
-        private int width = 1208;
+        private int width = 1280;
 
         public Game1()
         {
