@@ -19,10 +19,16 @@ namespace Perihelion
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        private int height = 720;
+        private int width = 1208;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferHeight = height;
+            graphics.PreferredBackBufferWidth = width;
         }
 
         /// <summary>
