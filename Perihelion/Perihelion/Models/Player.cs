@@ -10,7 +10,7 @@ namespace Perihelion.Models
     class Player : Unit
     {
         private float wellMultiplier;
-        private bool wellStatus;
+        private int wellStatus;
 
         /************************************************************************/
         /*  Constructors for Player object                                      */
@@ -19,10 +19,10 @@ namespace Perihelion.Models
             : base(texture, x, y, velocity, currentHealth, maxHealth)
         {
             setWellMultiplier(1);
-            setWellStatus(false);
+            setWellStatus(0);
         }
 
-        public Player(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier)
+        public Player(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus)
             : base(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier)
         {
             setWellMultiplier(wellMultiplier);
@@ -36,7 +36,7 @@ namespace Perihelion.Models
             this.wellMultiplier = wellModifier;
         }
 
-        void setWellStatus(bool wellStatus)
+        void setWellStatus(int wellStatus)
         {
             this.wellStatus = wellStatus;
         }
@@ -49,7 +49,7 @@ namespace Perihelion.Models
             return this.wellMultiplier;
         }
 
-        bool getWellStatus()
+        int getWellStatus()
         {
             return wellStatus;
         }
