@@ -9,11 +9,25 @@ namespace Perihelion.Controllers
 {
     class UnitFactory
     {
+        private static enum units { enemy, player };
         public UnitFactory()
         {
             
         }
 
+        /*Models.GameObject createUnit(units unitType){
+            switch (unitType)
+            {
+                case units.enemy:
+                    return new Models.Enemy();
+                case units.player:
+                    return new Models.Player();
+                default:
+                    return null;
+            }
+        }*/
+
+        /*
         Models.Player createPlayer(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth)
         {
             Models.Player player = new Models.Player(texture, x, y, velocity, currentHealth, maxHealth);
@@ -36,6 +50,6 @@ namespace Perihelion.Controllers
         {
             Models.Enemy enemy = new Models.Enemy(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier, projectiles, destructibleProjectiles, cloak);
             return enemy;
-        }
+        }*/
     }
 }
