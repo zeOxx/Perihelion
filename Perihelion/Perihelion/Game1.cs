@@ -19,8 +19,8 @@ namespace Perihelion
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        // The two declarations below are used for testing purposes!
         Models.GameObject testObject;
-
         Vector2 tempVector = Vector2.Zero;
 
         private int height = 720;
@@ -57,6 +57,7 @@ namespace Perihelion
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            // THIS IS JUST A TEST THING. THIS IS NOT THE KOSHER WAY TO DRAW AN OBJECT WITH THE WAY THE PROJECT IS CURRENTlY SET UP!
             testObject = new Models.GameObject(Content.Load<Texture2D>("testSquare"), (width/2-16), (height/2-16), tempVector);
 
             // TODO: use this.Content to load your game content here
