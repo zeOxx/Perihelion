@@ -104,7 +104,7 @@ namespace Perihelion
 
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            spriteBatch.Draw(testObject.getTexture(), testObject.getPosition(), Color.White);
+            testObject.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

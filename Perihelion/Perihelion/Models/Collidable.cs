@@ -19,7 +19,8 @@ namespace Perihelion.Models
         /************************************************************************/
         /* Constructor                                                          */
         /************************************************************************/
-        public Collidable(Texture2D texture, float x, float y, Vector2 velocity, bool isDestructable, int maxHealth, int currentHealth) : base(texture, x, y, velocity)
+        public Collidable(Texture2D texture, float x, float y, Vector2 velocity, bool isDestructable, int maxHealth, int currentHealth) 
+            : base(texture, x, y, velocity)
         {
             setDestructable(isDestructable);
             setMaxHealth(maxHealth);
