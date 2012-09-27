@@ -19,7 +19,7 @@ namespace Perihelion.Models
         /************************************************************************/
         /*  Constructors for Enemy object                                       */
         /************************************************************************/
-        public Enemy(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth)
+        public Enemy(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth) //WIP
             : base(texture, x, y, velocity, currentHealth, maxHealth)
         {
             setProjectiles(true, true);
@@ -32,7 +32,7 @@ namespace Perihelion.Models
         {
             setProjectiles(projectiles, destructibleProjectiles);
             this.cloak = cloak;
-            this.cloakCountdown = 0;
+            setCloakcountdown(0);
             if (this.cloak)
             {
                 setCloaked(true);
@@ -64,10 +64,6 @@ namespace Perihelion.Models
             }
         }
 
-        void setCloakcountdown(int i)
-        {
-            this.cloakCountdown -= i;
-        }
         /************************************************************************/
         /*  Get functions for Enemy attributes                                  */
         /************************************************************************/
@@ -89,6 +85,19 @@ namespace Perihelion.Models
         bool getCloaked()
         {
             return this.cloaked;
+        }
+
+        void setCloakcountdown(int i)
+        {
+            this.cloakCountdown = i;
+        }
+
+        /************************************************************************/
+        /*  Update functions for Enemy attributes                               */
+        /************************************************************************/
+        void updateCloakcountdown(int i)
+        {
+            this.cloakCountdown -= i;
         }
     }
 }

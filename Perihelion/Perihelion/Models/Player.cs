@@ -11,6 +11,7 @@ namespace Perihelion.Models
     {
         private float wellMultiplier;
         private int wellStatus;
+        private int auxiliaryPower;
 
         /************************************************************************/
         /*  Constructors for Player object                                      */
@@ -20,13 +21,15 @@ namespace Perihelion.Models
         {
             setWellMultiplier(1);
             setWellStatus(0);
+            setAuxiliaryPower(100);
         }
 
-        public Player(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus)
+        public Player(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)
             : base(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier)
         {
             setWellMultiplier(wellMultiplier);
             setWellStatus(wellStatus);
+            setAuxiliaryPower(auxiliaryPower);
         }
         /************************************************************************/
         /*  Set functions for Player attributes                                 */
@@ -41,6 +44,11 @@ namespace Perihelion.Models
             this.wellStatus = wellStatus;
         }
 
+        void setAuxiliaryPower(int auxiliaryPower)
+        {
+            this.auxiliaryPower = auxiliaryPower;
+        }
+
         /************************************************************************/
         /*  Get functions for Player attributes                                 */
         /************************************************************************/
@@ -51,7 +59,25 @@ namespace Perihelion.Models
 
         int getWellStatus()
         {
-            return wellStatus;
+            return this.wellStatus;
+        }
+
+        int getAuxiliaryPower()
+        {
+            return this.auxiliaryPower;
+        }
+
+        /************************************************************************/
+        /*  Update functions for Player attributes                              */
+        /************************************************************************/
+        void updateWellMultiplier(float i)
+        {
+            this.wellMultiplier += i;
+        }
+
+        void updateAuxiliaryPower(int i)
+        {
+            this.auxiliaryPower += i;
         }
     }
 }

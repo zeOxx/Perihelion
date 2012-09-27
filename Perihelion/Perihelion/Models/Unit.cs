@@ -74,5 +74,18 @@ namespace Perihelion.Models
         {
             return this.attackMultiplier;
         }
+
+        /************************************************************************/
+        /*  Update functions for Unit attributes                                */
+        /************************************************************************/
+        void updateCurrentHealth(int i)
+        {
+            this.currentHealth += i;
+        }
+
+        void updateMaxHealth(int i)
+        {
+            this.maxHealth += i;
+        }
     }
 }
