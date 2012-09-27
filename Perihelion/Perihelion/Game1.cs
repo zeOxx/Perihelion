@@ -19,6 +19,10 @@ namespace Perihelion
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Models.GameObject testObject;
+
+        Vector2 tempVector = Vector2.Zero;
+
         private int height = 720;
         private int width = 1280;
 
@@ -52,6 +56,8 @@ namespace Perihelion
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            testObject = new Models.GameObject(Content.Load<Texture2D>("testSquare"), (width/2-16), (height/2-16), tempVector);
 
             // TODO: use this.Content to load your game content here
         }
@@ -97,6 +103,9 @@ namespace Perihelion
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            spriteBatch.Draw(testObject.getTexture(), testObject.getPosition(), Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

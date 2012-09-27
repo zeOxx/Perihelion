@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Models\GameObject.cs" />
