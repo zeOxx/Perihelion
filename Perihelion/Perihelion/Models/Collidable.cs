@@ -58,5 +58,16 @@ namespace Perihelion.Models
         {
             return currentHealth;
         }
+
+        /************************************************************************/
+        /* Misc                                                                 */
+        /************************************************************************/
+        public void updateCurrentHealth(int healthChange)
+        {
+            if (healthChange < 0)
+                currentHealth -= healthChange;
+            else
+                currentHealth += healthChange;
+        }
     }
 }
