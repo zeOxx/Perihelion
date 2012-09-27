@@ -92,5 +92,10 @@ namespace Perihelion.Models
         {
             this.velocity = velocity;
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, position, Color.White);
+        }
     }
 }
