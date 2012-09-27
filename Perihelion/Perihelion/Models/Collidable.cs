@@ -10,6 +10,9 @@ namespace Perihelion.Models
     class Collidable : GameObject
     {
         bool isDestructable;
+
+        // These variables are only used if isDestructable is true. 
+        //  If isDestructable is false, the class just generates a normal GameObject
         int maxHealth;
         int currentHealth;
 
