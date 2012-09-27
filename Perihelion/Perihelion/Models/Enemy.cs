@@ -19,11 +19,20 @@ namespace Perihelion.Models
         /************************************************************************/
         /*  Constructors for Enemy object                                       */
         /************************************************************************/
+        public Enemy()
+        {
+            setProjectiles(true, true);
+            this.cloak = false;
+            setCloakcountdown(0);
+            setCloaked(false);
+        }
+
         public Enemy(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth) //WIP
             : base(texture, x, y, velocity, currentHealth, maxHealth)
         {
             setProjectiles(true, true);
             this.cloak = false;
+            setCloakcountdown(0);
             setCloaked(false);
         }
 

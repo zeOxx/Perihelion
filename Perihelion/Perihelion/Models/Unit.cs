@@ -17,6 +17,13 @@ namespace Perihelion.Models
         /************************************************************************/
         /*  Constructors for Player object                                      */
         /************************************************************************/
+        public Unit()
+        {
+            setHealth(100, 100);
+            setDamageMultiplier(1);
+            setAttackMultiplier(1);
+        }
+
         public Unit(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth)
             : base(texture, x, y, velocity)
         {
@@ -86,6 +93,17 @@ namespace Perihelion.Models
         void updateMaxHealth(int i)
         {
             this.maxHealth += i;
+        }
+
+        /************************************************************************/
+        /*  Constructor functions for Unit attributes                         */
+        /************************************************************************/
+        protected void constructUnit(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier)
+        {
+            base.constructGameObject(texture, x, y, velocity);
+            setHealth(currentHealth, maxHealth);
+            setDamageMultiplier(damageMultiplier);
+            setAttackMultiplier(attackMultiplier);
         }
     }
 }

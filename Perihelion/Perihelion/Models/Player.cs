@@ -16,6 +16,13 @@ namespace Perihelion.Models
         /************************************************************************/
         /*  Constructors for Player object                                      */
         /************************************************************************/
+        public Player()
+        {
+            setWellMultiplier(1);
+            setWellStatus(0);
+            setAuxiliaryPower(100);
+        }
+
         public Player(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth)
             : base(texture, x, y, velocity, currentHealth, maxHealth)
         {
@@ -78,6 +85,17 @@ namespace Perihelion.Models
         void updateAuxiliaryPower(int i)
         {
             this.auxiliaryPower += i;
+        }
+
+        /************************************************************************/
+        /*  Constructor functions for Player attributes                         */
+        /************************************************************************/
+        void constructPlayer(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)
+        {
+            base.constructUnit(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier);
+            setWellMultiplier(wellMultiplier);
+            setWellStatus(wellStatus);
+            setAuxiliaryPower(auxiliaryPower);
         }
     }
 }

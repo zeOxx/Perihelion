@@ -10,12 +10,18 @@ namespace Perihelion.Models
     class GameObject
     {
         protected Texture2D texture;
-        protected Vector2 position = new Vector2();
+        protected Vector2 position;
         protected Vector2 velocity;
 
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
+        public GameObject()
+        {
+            setPosition(0, 0);
+            setVelocity(new Vector2(0, 0));
+        }
+        
         public GameObject (Texture2D texture, float x, float y, Vector2 velocity)
         {
             setTexture(texture);
@@ -96,6 +102,13 @@ namespace Perihelion.Models
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, Color.White);
+        }
+
+        protected void constructGameObject(Texture2D texture, float x, float y, Vector2 velocity)
+        {
+            setTexture(texture);
+            setPosition(x, y);
+            setVelocity(velocity);
         }
     }
 }

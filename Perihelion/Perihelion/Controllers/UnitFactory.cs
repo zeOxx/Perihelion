@@ -15,7 +15,7 @@ namespace Perihelion.Controllers
             
         }
 
-        /*Models.GameObject createUnit(units unitType){
+        Models.GameObject createUnit(units unitType){
             switch (unitType)
             {
                 case units.enemy:
@@ -25,7 +25,7 @@ namespace Perihelion.Controllers
                 default:
                     return null;
             }
-        }*/
+        }
 
         /*
         Models.Player createPlayer(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth)
