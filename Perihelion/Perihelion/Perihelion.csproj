@@ -107,6 +107,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\UnitFactory.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Controllers\InputHandler.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Models\DestructibleProjectile.cs" />
     <Compile Include="Models\Enemy.cs" />
     <Compile Include="Models\GameObject.cs" />
+    <Compile Include="Models\Gameworld.cs" />
     <Compile Include="Models\Interface.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Projectile.cs" />

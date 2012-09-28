@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Perihelion.Models;
+using Perihelion;
+
 
 namespace Perihelion.Controllers
 {
-    class Controller : GameObject
+    class Controller
     {
         
         //************** VARIABLES ******************
@@ -13,15 +16,22 @@ namespace Perihelion.Controllers
 
         public Controller()
         {
-            playerObjects = new GameObject[maxNumberOfObjectsInArray];
+            playerObjects = new GameObject[Constants.maxNumberOfObjectsInArray];
         }
 
         //************** FUNCTIONS ******************
         
-        //Copies the entire Gamestate
-        public void getModelFromGameworld()
+        public Gameworld updateGameWorld(Gameworld gameWorld)
         {
-            playerObjects = .getPlayer();
+            getModelFromGameworld(gameWorld);
+
+            return gameWorld;
+        }
+
+        //Copies the entire Gamestate
+        public void getModelFromGameworld(Gameworld gameWorld)
+        {
+            playerObjects = gameWorld.getPlayer();
         }
 
     }

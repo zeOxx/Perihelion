@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Perihelion
+namespace Perihelion.Models
 {
     class GameObject    
     {
@@ -13,13 +13,12 @@ namespace Perihelion
         protected Vector2 position;
         protected Vector2 velocity;
 
-        internal const int maxNumberOfObjectsInArray = 50;
+        
 
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
         public GameObject()
-            : base()
         {
             setPosition(0, 0);
             setVelocity(new Vector2(0, 0));
