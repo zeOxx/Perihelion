@@ -92,7 +92,7 @@ namespace Perihelion.Models
         /************************************************************************/
         void constructPlayer(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)
         {
-            base.constructUnit(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier);
+            base.constructUnit(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier);
             setWellMultiplier(wellMultiplier);
             setWellStatus(wellStatus);
             setAuxiliaryPower(auxiliaryPower);

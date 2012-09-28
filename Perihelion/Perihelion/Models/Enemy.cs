@@ -108,5 +108,24 @@ namespace Perihelion.Models
         {
             this.cloakCountdown -= i;
         }
+
+        /************************************************************************/
+        /*  Constructor functions for Enemy attributes                          */
+        /************************************************************************/
+        void constructEnemy(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, bool projectiles, bool destructibleProjectiles, bool cloak)
+        {
+            base.constructUnit(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier);
+            setProjectiles(projectiles, destructibleProjectiles);
+            this.cloak = cloak;
+            setCloakcountdown(0);
+            if (this.cloak)
+            {
+                setCloaked(true);
+            }
+            else
+            {
+                setCloaked(false);
+            }
+        }
     }
 }
