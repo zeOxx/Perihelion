@@ -5,13 +5,15 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Perihelion.Models
+namespace Perihelion
 {
-    class GameObject
+    class GameObject    
     {
         protected Texture2D texture;
         protected Vector2 position;
         protected Vector2 velocity;
+
+        internal const int maxNumberOfObjectsInArray = 50;
 
         /************************************************************************/
         /*                                                                      */
@@ -104,6 +106,7 @@ namespace Perihelion.Models
         {
             spriteBatch.Draw(texture, position, Color.White);
         }
+
 
         protected void constructGameObject(Texture2D texture, float x, float y, Vector2 velocity)
         {
