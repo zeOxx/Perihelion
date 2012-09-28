@@ -17,6 +17,7 @@ namespace Perihelion.Models
         /*  Constructors for Player object                                      */
         /************************************************************************/
         public Player()
+            : base()
         {
             setWellMultiplier(1);
             setWellStatus(0);

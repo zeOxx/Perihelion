@@ -17,6 +17,7 @@ namespace Perihelion.Models
         /*                                                                      */
         /************************************************************************/
         public GameObject()
+            : base()
         {
             setPosition(0, 0);
             setVelocity(new Vector2(0, 0));

@@ -18,6 +18,7 @@ namespace Perihelion.Models
         /*  Constructors for Player object                                      */
         /************************************************************************/
         public Unit()
+            : base()
         {
             setHealth(100, 100);
             setDamageMultiplier(1);

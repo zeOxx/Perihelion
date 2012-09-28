@@ -20,6 +20,7 @@ namespace Perihelion.Models
         /*  Constructors for Enemy object                                       */
         /************************************************************************/
         public Enemy()
+            : base()
         {
             setProjectiles(true, true);
             this.cloak = false;
