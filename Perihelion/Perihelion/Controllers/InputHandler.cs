@@ -12,29 +12,14 @@ namespace Perihelion
     {
         private float vibrationAmount = 0.0f;
 
-        void UpdateInput()
-        {
-            // Get the current gamepad state.
-            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
+        static GamePadState currentGamePadState;
+        static GamePadState lastGamePadState;
+        static KeyboardState currentKeyboardState;
+        static KeyboardState lastKeyboardState;
 
-            // Process input only if connected and button A is pressed.
-//             if (currentState.IsConnected && currentState.Buttons.A ==
-//                 ButtonState.Pressed)
-//             {
-//                 // Button A is currently being pressed; add vibration.
-//                 vibrationAmount =
-//                     MathHelper.Clamp(vibrationAmount + 0.03f, 0.0f, 1.0f);
-//                 GamePad.SetVibration(PlayerIndex.One,
-//                     vibrationAmount, vibrationAmount);
-//             }
-//             else
-//             {
-//                 // Button A is not being pressed; subtract some vibration.
-//                 vibrationAmount =
-//                     MathHelper.Clamp(vibrationAmount - 0.05f, 0.0f, 1.0f);
-//                 GamePad.SetVibration(PlayerIndex.One,
-//                     vibrationAmount, vibrationAmount);
-//             }
+        public static KeyboardState KeyboardState
+        {
+            get { return currentKeyboardState; }
         }
     }
 }
