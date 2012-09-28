@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace Perihelion
 {
-    class Input
+    class InputHandler
     {
         private float vibrationAmount = 0.0f;
 
