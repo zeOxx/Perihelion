@@ -9,7 +9,7 @@ namespace Perihelion.Controllers
 {
     class UnitFactory
     {
-        private static enum units { enemy, player };
+        private enum units { enemy, player };
         public UnitFactory()
         {
             
