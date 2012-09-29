@@ -10,6 +10,7 @@ namespace Perihelion.Models
     class Interface : GameObject
     {
         // This determines the placement of the interface element. This tells HUD.cs where to draw it.
+        //  THIS IS NOT USED AS I DON'T THINK IT'LL ACTUALLY DO ANYTHING EASIER. LEAVING IT FOR NOW
         String placement;
 
         /************************************************************************/
