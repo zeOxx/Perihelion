@@ -20,8 +20,11 @@ namespace Perihelion
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        
         Gameworld gameWorld;
         Controller gameController;
+//         Controllers.Controller gameController = new Controllers.Controller();
+//         Models.Gameworld gameWorld = new Models.Gameworld(); 
 
         // The two declarations below are used for testing purposes!
         GameObject testObject;
@@ -48,8 +51,8 @@ namespace Perihelion
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            Controllers.Controller gameController = new Controllers.Controller();
-            Models.Gameworld gameWorld = new Models.Gameworld();    //TODO SINGLETON
+            gameController = new Controllers.Controller();
+            gameWorld = new Models.Gameworld();    //TODO SINGLETON
             base.Initialize();
         }
 
@@ -63,7 +66,7 @@ namespace Perihelion
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // THIS IS JUST A TEST THING. THIS IS NOT THE KOSHER WAY TO DRAW AN OBJECT WITH THE WAY THE PROJECT IS CURRENTlY SET UP!
-            testObject = new GameObject(Content.Load<Texture2D>("testSquare"), (width/2-16), (height/2-16), tempVector);
+            testObject = new GameObject(Content.Load<Texture2D>("texturePlayer"), (width/2-16), (height/2-16), tempVector);
 
             // TODO: use this.Content to load your game content here
         }
@@ -97,6 +100,7 @@ namespace Perihelion
             if (keyboard.IsKeyDown(Keys.Escape))
                 Exit();
 
+            // Sends gamestate to controller and receives updated state. 
             gameWorld = gameController.updateGameWorld(gameWorld);
 
             // TODO: Add your update logic here

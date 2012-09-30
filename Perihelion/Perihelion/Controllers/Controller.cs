@@ -12,11 +12,13 @@ namespace Perihelion.Controllers
     {
         
         //************** VARIABLES ******************
-        private GameObject[] playerObjects;
+        private GameObject playerObject;
+
 
         public Controller()
         {
-            playerObjects = new GameObject[Constants.maxNumberOfObjectsInArray];
+            //playerObject = new GameObject[Constants.maxNumberOfObjectsInArray];
+            playerObject = null;
         }
 
         //************** FUNCTIONS ******************
@@ -25,13 +27,15 @@ namespace Perihelion.Controllers
         {
             getModelFromGameworld(gameWorld);
 
+            //Change gamestate
+
             return gameWorld;
         }
 
         //Copies the entire Gamestate
         public void getModelFromGameworld(Gameworld gameWorld)
         {
-            playerObjects = gameWorld.getPlayer();
+            playerObject = gameWorld.getPlayer();
         }
 
     }

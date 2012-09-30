@@ -7,14 +7,27 @@ namespace Perihelion.Models
 {
     class Gameworld         // TODO SINGLETON
     {
-        private Player[] playerObject;
 
-        public Player[] getPlayer()
+
+        private Player playerObject;
+
+
+        public Gameworld()
         {
-            playerObject[0] = new Player();
+            initializeGameworld();
+            
+        }
+
+        public Player getPlayer()
+        {
+            
             return playerObject;
         }
 
+        private void initializeGameworld()
+        {
+            playerObject = new Player();
+        }
 
     }
 }
