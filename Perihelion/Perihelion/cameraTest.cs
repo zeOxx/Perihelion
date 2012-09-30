@@ -84,7 +84,7 @@ namespace Perihelion
                 spriteVelocity.X = (float)Math.Cos(rotation) * TANGENTIALVELOCITY;
                 spriteVelocity.Y = (float)Math.Sin(rotation) * TANGENTIALVELOCITY;
             }
-            else if (spriteVelocity != Vector2.Zero)
+            else if (spriteVelocity != Vector2.Zero)    //If we stop (release key)
             {
                 float i = spriteVelocity.X;
                 float j = spriteVelocity.Y;
