@@ -23,6 +23,7 @@ namespace Perihelion
         
         Gameworld gameWorld;
         Controller gameController;
+        ContentHolder contentHolder;
 //         Controllers.Controller gameController = new Controllers.Controller();
 //         Models.Gameworld gameWorld = new Models.Gameworld(); 
 
@@ -65,8 +66,12 @@ namespace Perihelion
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            contentHolder = new ContentHolder(this.Content);
+
             // THIS IS JUST A TEST THING. THIS IS NOT THE KOSHER WAY TO DRAW AN OBJECT WITH THE WAY THE PROJECT IS CURRENTlY SET UP!
-            testObject = new GameObject(Content.Load<Texture2D>("texturePlayer"), (width/2-16), (height/2-16), tempVector);
+            //testObject = new GameObject(Content.Load<Texture2D>("texturePlayer"), (width/2-16), (height/2-16), tempVector);
+
+            testObject = new GameObject(contentHolder.texturePlayer, (width / 2 - 16), (height / 2 - 16), tempVector);
 
             // TODO: use this.Content to load your game content here
         }
