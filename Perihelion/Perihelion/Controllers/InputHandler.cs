@@ -114,5 +114,26 @@ namespace Perihelion
             // Returns the button that is being pressed down.
             return currentGamePadState.IsButtonDown(button);
         }
+
+        // TEMP STICK HANDLING
+        public static float updateLeftStickX()
+        {
+            return currentGamePadState.ThumbSticks.Left.X;
+        }
+
+        public static float updateLeftStickY()
+        {
+            return currentGamePadState.ThumbSticks.Left.Y;
+        }
+
+        public static float updateRightStickX()
+        {
+            return currentGamePadState.ThumbSticks.Right.X;
+        }
+
+        public static float updateRightStickY()
+        {
+            return currentGamePadState.ThumbSticks.Right.Y;
+        }
     }
 }
