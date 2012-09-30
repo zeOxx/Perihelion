@@ -35,9 +35,9 @@ namespace Perihelion
             /*
              * Since textures are not set and placement is still there these do not work, so I commented them out.
              * 
-            HealthBar = new Models.Interface(healthBar, healthBarPosition.X, healthBarPosition.Y, null, null);
-            AuxBar = new Models.Interface(auxBar, auxBarPosition.X, auxBarPosition.Y, null, null);
-            Special = new Models.Interface(special, specialPosition.X, specialPosition.Y, null, null);
+            HealthBar = new Models.Interface(ContentHolder.healthBar, healthBarPosition.X, healthBarPosition.Y, null, null);
+            AuxBar = new Models.Interface(ContentHolder.auxBar, auxBarPosition.X, auxBarPosition.Y, null, null);
+            Special = new Models.Interface(ContentHolder.special, specialPosition.X, specialPosition.Y, null, null);
              */
         }
 
