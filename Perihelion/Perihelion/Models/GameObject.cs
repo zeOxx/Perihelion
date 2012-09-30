@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Perihelion.Models
 {
-    class GameObject    
+    class GameObject
     {
         protected Texture2D texture;
         protected Vector2 position;
