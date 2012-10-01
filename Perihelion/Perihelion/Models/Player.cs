@@ -83,26 +83,33 @@ namespace Perihelion.Models
         /************************************************************************/
         /*  Update functions for Player attributes                              */
         /************************************************************************/
-        void updateWellMultiplier(float i)
+        public void updateWellMultiplier(float i)
         {
             this.wellMultiplier += i;
         }
 
-        void updateAuxiliaryPower(int i)
+        public void updateAuxiliaryPower(int i)
         {
             this.auxiliaryPower += i;
         }
 
-        /************************************************************************/
-        /*  Constructor functions for Player attributes                         */
-        /************************************************************************/
-
-        void constructPlayer(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)
+        public void updatePosition(float deltaX, float deltaY)
         {
-            base.constructUnit(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier);
-            setWellMultiplier(wellMultiplier);
-            setWellStatus(wellStatus);
-            setAuxiliaryPower(auxiliaryPower);
+            position.X = position.X + deltaX;
+            position.Y = position.Y + deltaY;
         }
+
+        // WUT
+//         /************************************************************************/
+//         /*  Constructor functions for Player attributes                         */
+//         /************************************************************************/
+// 
+//         public void constructPlayer(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)
+//         {
+//             base.constructUnit(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier);
+//             setWellMultiplier(wellMultiplier);
+//             setWellStatus(wellStatus);
+//             setAuxiliaryPower(auxiliaryPower);
+//         }
     }
 }

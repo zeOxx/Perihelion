@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Perihelion.Models;
 using Perihelion;
 
@@ -12,8 +14,7 @@ namespace Perihelion.Controllers
     {
         
         //************** VARIABLES ******************
-        private GameObject playerObject;
-
+        private Player playerObject;
 
         public Controller()
         {
@@ -23,11 +24,15 @@ namespace Perihelion.Controllers
 
         //************** FUNCTIONS ******************
         
-        public Gameworld updateGameWorld(Gameworld gameWorld)
+        public Gameworld updateGameWorld(Gameworld gameWorld, GameTime gameTime, InputHandler inputHandler)
         {
             getModelFromGameworld(gameWorld);
 
             //Change gamestate
+
+            checkInput(gameTime, inputHandler);
+
+            gameWorld.setPlayer(playerObject);
 
             return gameWorld;
         }
@@ -38,5 +43,22 @@ namespace Perihelion.Controllers
             playerObject = gameWorld.getPlayer();
         }
 
+        // Checks input
+        public void checkInput(GameTime gameTime, InputHandler inputHandler)
+        {
+            inputHandler.updateInput();
+
+            if (inputHandler.KeyDown(Keys.D))
+                playerObject.updatePosition(1, 0);
+
+            if (inputHandler.KeyDown(Keys.A))
+                playerObject.updatePosition(-1, 0);
+
+            if (inputHandler.KeyDown(Keys.S))
+                playerObject.updatePosition(0, 1);
+
+            if (inputHandler.KeyDown(Keys.W))
+                playerObject.updatePosition(0, -1);
+        }
     }
 }

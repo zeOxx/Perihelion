@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace Perihelion
 {
-    class InputHandler : GameComponent
+    class InputHandler
     {
         // Sets vibration to 0. CURRENTLY NOT IN USE!
         private float vibrationAmount = 0.0f;
@@ -46,22 +46,14 @@ namespace Perihelion
         /************************************************************************/
         /* Constructor                                                          */
         /************************************************************************/
-        public InputHandler(Game game) : base(game)
+        public InputHandler()
         {
             currentKeyboardState = Keyboard.GetState();
 
             currentGamePadState = GamePad.GetState(PlayerIndex.One);
         }
 
-        /************************************************************************/
-        /* XNA OVERRIDES                                                        */
-        /************************************************************************/
-        public override void Initialize()
-        {
-            base.Initialize();
-        }
-
-        public override void Update(GameTime gameTime)
+        public void updateInput()
         {
             // Updates the current and last keyboardstates
             lastKeyboardState = currentKeyboardState;
@@ -70,25 +62,23 @@ namespace Perihelion
             // Updates the current and last gamepadstates
             lastGamePadState = currentGamePadState;
             currentGamePadState = GamePad.GetState(PlayerIndex.One);
-
-            base.Update(gameTime);
         }
 
         /************************************************************************/
         /* KEYBOARD METHODS                                                     */
         /************************************************************************/
-        public static void Flush()
+        public void Flush()
         {
             lastKeyboardState = currentKeyboardState;
         }
 
-        public static bool KeyReleased(Keys key)
+        public bool KeyReleased(Keys key)
         {
             // Returns if the released key was the same key that was pressed
             return currentKeyboardState.IsKeyUp(key) && lastKeyboardState.IsKeyDown(key);
         }
 
-        public static bool KeyDown(Keys key)
+        public bool KeyDown(Keys key)
         {
             // Returns the key that is currently pressed down
             return currentKeyboardState.IsKeyDown(key);
@@ -97,41 +87,41 @@ namespace Perihelion
         /************************************************************************/
         /* GAMEPAD METHODS                                                      */
         /************************************************************************/
-        public static bool ButtonReleased(Buttons button)
+        public bool ButtonReleased(Buttons button)
         {
             // Returns if the released button was the same button that was pressed
             return currentGamePadState.IsButtonUp(button) && lastGamePadState.IsButtonDown(button);
         }
 
-        public static bool ButtonPressed(Buttons button)
+        public bool ButtonPressed(Buttons button)
         {
             // Returns if the pressed button was not already being pressed
             return currentGamePadState.IsButtonDown(button) && lastGamePadState.IsButtonUp(button);
         }
 
-        public static bool ButtonDown(Buttons button)
+        public bool ButtonDown(Buttons button)
         {
             // Returns the button that is being pressed down.
             return currentGamePadState.IsButtonDown(button);
         }
 
         // TEMP STICK HANDLING
-        public static float updateLeftStickX()
+        public float updateLeftStickX()
         {
             return currentGamePadState.ThumbSticks.Left.X;
         }
 
-        public static float updateLeftStickY()
+        public float updateLeftStickY()
         {
             return currentGamePadState.ThumbSticks.Left.Y;
         }
 
-        public static float updateRightStickX()
+        public float updateRightStickX()
         {
             return currentGamePadState.ThumbSticks.Right.X;
         }
 
-        public static float updateRightStickY()
+        public float updateRightStickY()
         {
             return currentGamePadState.ThumbSticks.Right.Y;
         }
