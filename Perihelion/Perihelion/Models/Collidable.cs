@@ -19,10 +19,10 @@ namespace Perihelion.Models
         /************************************************************************/
         /* Constructor                                                          */
         /************************************************************************/
-        public Collidable()
-            : base()
+        public Collidable(Texture2D texture, float x, float y, Vector2 velocity)
+            : base(texture, x, y, velocity)
         {
-
+            // CREATES A GAMEOBJECT
         }
         
         public Collidable(Texture2D texture, float x, float y, Vector2 velocity, bool isDestructable, int maxHealth, int currentHealth) 

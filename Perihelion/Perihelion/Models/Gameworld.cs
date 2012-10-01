@@ -13,6 +13,7 @@ namespace Perihelion.Models
     class Gameworld : Microsoft.Xna.Framework.Game        // TODO SINGLETON
     {
         private Player playerObject;
+        private Collidable rock;
 
         public Gameworld(ContentHolder contentHolder)
         {
@@ -32,11 +33,13 @@ namespace Perihelion.Models
         private void initializeGameworld(ContentHolder contentHolder)
         {
             playerObject = new Player(contentHolder.texturePlayer, 0, 0, Vector2.Zero, 100, 100);
+            rock = new Collidable(contentHolder.textureRock01, 200, 350, Vector2.Zero);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             playerObject.Draw(spriteBatch);
+            rock.Draw(spriteBatch);
         }
     }
 }

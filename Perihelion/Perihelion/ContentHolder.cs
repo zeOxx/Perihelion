@@ -15,7 +15,8 @@ namespace Perihelion
     {
         // Playertexture
         public Texture2D texturePlayer;
-        
+        public Texture2D textureRock01;
+
         // HUD elements
         public Texture2D healthbar;
         public Texture2D auxBar;
@@ -24,6 +25,7 @@ namespace Perihelion
         public ContentHolder(ContentManager content)
         {   
             texturePlayer = content.Load<Texture2D>("texturePlayer");
+            textureRock01 = content.Load<Texture2D>("rock_01");
             /*
              * healthBar = content.Load<Texture2D>("healthbar");
              * auxBar = content.Load<Texture2D>("auxbar");
