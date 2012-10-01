@@ -18,31 +18,26 @@ namespace Perihelion
         Texture2D spriteTexture;
         public Rectangle spriteRectangle;
 
-        //Center of the image
         Vector2 spriteOrigin;
 
         public Vector2 spritePosition;
         float rotation;
-        float zoom;
 
         Vector2 spriteVelocity;
-        const float TANGENTIALVELOCITY = 5.0f;
+        const float TANGENTIAL_VELOCITY = 5.0f;
         float friction = 0.1f;
 
-        //Camera object
         Camera camera;
 
-        //For drawing
         Texture2D backgroundTexture;
-        Vector2 backgroundPosition;     //Not in use right now...
-
+        Vector2 backgroundPosition;
 
         public cameraTest()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
-
+                
         protected override void Initialize()
         {
             camera = new Camera(GraphicsDevice.Viewport);
@@ -54,47 +49,42 @@ namespace Perihelion
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //Loads the awesome pirate-ship picture
-            spriteTexture = Content.Load<Texture2D>("texturePlayer");
+            this.spriteTexture = Content.Load<Texture2D>("texturePlayer");
+            this.spritePosition = new Vector2(300, 250);
 
-            //Defines the size
-            spritePosition = new Vector2(300, 250);
+            this.backgroundTexture = Content.Load<Texture2D>("background");
 
-            //Same goes for background
-            backgroundTexture = Content.Load<Texture2D>("background");
-
+            camera = new Camera(GraphicsDevice.Viewport);
         }
 
 
+        //Handles Keypresses and udates the camera-class accordingly
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            this.spriteRectangle = new Rectangle((int)this.spritePosition.X, (int)this.spritePosition.Y,
+                this.spriteTexture.Width, this.spriteTexture.Height);
+            
+            this.spritePosition = this.spriteVelocity + this.spritePosition;
+            this.spriteOrigin = new Vector2(this.spriteRectangle.Width / 2, this.spriteRectangle.Height / 2);
 
-            spriteRectangle = new Rectangle((int)spritePosition.X, (int)spritePosition.Y, spriteTexture.Width, spriteTexture.Height);
-            spritePosition = spriteVelocity + spritePosition;
+            if (Keyboard.GetState().IsKeyDown(Keys.X)) camera.Zoom += 0.01f;
+            if (Keyboard.GetState().IsKeyDown(Keys.Z)) camera.Zoom -= 0.01f;
+            
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))   this.rotation += 0.1f;
+            if (Keyboard.GetState().IsKeyDown(Keys.Left)) this.rotation -= 0.1f;
 
-            spriteOrigin = new Vector2(spriteRectangle.Width / 2, spriteRectangle.Height / 2);
-
-            if (Keyboard.GetState().IsKeyDown(Keys.X)) zoom += 1.0f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Z)) zoom -= 1.0f;
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Right)) rotation += 0.1f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Left)) rotation -= 0.1f;
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) //If we stop (release key)
+            if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                spriteVelocity.X = (float)Math.Cos(rotation) * TANGENTIALVELOCITY;
-                spriteVelocity.Y = (float)Math.Sin(rotation) * TANGENTIALVELOCITY;
+                this.spriteVelocity.X = (float)Math.Cos(this.rotation) * TANGENTIAL_VELOCITY;
+                this.spriteVelocity.Y = (float)Math.Sin(this.rotation) * TANGENTIAL_VELOCITY;
             }
-            else if (spriteVelocity != Vector2.Zero)    
+            else if (this.spriteVelocity != Vector2.Zero)
             {
-                float i = spriteVelocity.X;
-                float j = spriteVelocity.Y;
+                float i = this.spriteVelocity.X;
+                float j = this.spriteVelocity.Y;
 
-                spriteVelocity.X = i -= friction * i;
-                spriteVelocity.Y = j -= friction * j;
+                this.spriteVelocity.X = i -= this.friction * i;
+                this.spriteVelocity.Y = j -= this.friction * j;
             }
 
             camera.update(gameTime, this);
@@ -108,12 +98,9 @@ namespace Perihelion
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
 
-            //Background
-            spriteBatch.Draw(backgroundTexture, backgroundPosition, Color.White);
-
-            //Ship-picture
-            spriteBatch.Draw(spriteTexture, spritePosition, null, Color.White, rotation, spriteOrigin, 1f, SpriteEffects.None, 0.0f);
-
+            spriteBatch.Draw(this.backgroundTexture, this.backgroundPosition, Color.White); //Draw Background
+            spriteBatch.Draw(this.spriteTexture, this.spritePosition, null, Color.White, this.rotation, //Draw the player
+                this.spriteOrigin, 1f, SpriteEffects.None, 0.0f);
             spriteBatch.End();
 
             base.Draw(gameTime);
