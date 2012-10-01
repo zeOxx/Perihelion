@@ -93,11 +93,7 @@ namespace Perihelion.Models
             this.auxiliaryPower += i;
         }
 
-        public void updatePosition(float deltaX, float deltaY)
-        {
-            position.X = position.X + deltaX;
-            position.Y = position.Y + deltaY;
-        }
+        
 
         // WUT
 //         /************************************************************************/

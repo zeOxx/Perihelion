@@ -89,9 +89,10 @@ namespace Perihelion.Models
             updateVelocity(velocity);
         }
 
-        void updatePosition(float x, float y)
+        public void updatePosition(float deltaX, float deltaY)
         {
-            this.position = new Vector2(x, y);
+            position.X = position.X + deltaX;
+            position.Y = position.Y + deltaY;
         }
 
         void updateVelocity(Vector2 velocity)
