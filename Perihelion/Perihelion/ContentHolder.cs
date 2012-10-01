@@ -24,7 +24,7 @@ namespace Perihelion
 
         public ContentHolder(ContentManager content)
         {   
-            texturePlayer = content.Load<Texture2D>("texturePlayer");
+            texturePlayer = content.Load<Texture2D>("ship");
             textureRock01 = content.Load<Texture2D>("rock_01");
             /*
              * healthBar = content.Load<Texture2D>("healthbar");

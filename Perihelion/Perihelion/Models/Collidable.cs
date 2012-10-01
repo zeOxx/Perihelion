@@ -25,6 +25,7 @@ namespace Perihelion.Models
             // CREATES A GAMEOBJECT
         }
         
+        // This constructor is used if the object is destructable ONLY.
         public Collidable(Texture2D texture, float x, float y, Vector2 velocity, bool isDestructable, int maxHealth, int currentHealth) 
             : base(texture, x, y, velocity)
         {
