@@ -23,6 +23,7 @@ namespace Perihelion
 
         public Vector2 spritePosition;
         float rotation;
+        float zoom;
 
         Vector2 spriteVelocity;
         const float TANGENTIALVELOCITY = 5.0f;
@@ -76,15 +77,18 @@ namespace Perihelion
 
             spriteOrigin = new Vector2(spriteRectangle.Width / 2, spriteRectangle.Height / 2);
 
+            if (Keyboard.GetState().IsKeyDown(Keys.X)) zoom += 1.0f;
+            if (Keyboard.GetState().IsKeyDown(Keys.Z)) zoom -= 1.0f;
+
             if (Keyboard.GetState().IsKeyDown(Keys.Right)) rotation += 0.1f;
             if (Keyboard.GetState().IsKeyDown(Keys.Left)) rotation -= 0.1f;
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
+            if (Keyboard.GetState().IsKeyDown(Keys.Up)) //If we stop (release key)
             {
                 spriteVelocity.X = (float)Math.Cos(rotation) * TANGENTIALVELOCITY;
                 spriteVelocity.Y = (float)Math.Sin(rotation) * TANGENTIALVELOCITY;
             }
-            else if (spriteVelocity != Vector2.Zero)    //If we stop (release key)
+            else if (spriteVelocity != Vector2.Zero)    
             {
                 float i = spriteVelocity.X;
                 float j = spriteVelocity.Y;
@@ -102,7 +106,7 @@ namespace Perihelion
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);   //Backgroundcolor if you move outside the background-picture
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.transform);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
 
             //Background
             spriteBatch.Draw(backgroundTexture, backgroundPosition, Color.White);
