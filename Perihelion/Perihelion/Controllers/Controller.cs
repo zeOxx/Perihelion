@@ -46,19 +46,33 @@ namespace Perihelion.Controllers
         // Checks input
         public void checkInput(GameTime gameTime, InputHandler inputHandler)
         {
-            inputHandler.updateInput();
+//             playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
+//             playerObject.updatePosition();
+
 
             if (inputHandler.KeyDown(Keys.D))
+            {
                 playerObject.updatePosition(1, 0);
 
+            }
+
             if (inputHandler.KeyDown(Keys.A))
+            {
                 playerObject.updatePosition(-1, 0);
 
+            }
+
             if (inputHandler.KeyDown(Keys.S))
+            {
                 playerObject.updatePosition(0, 1);
+            }
+
 
             if (inputHandler.KeyDown(Keys.W))
+            {
                 playerObject.updatePosition(0, -1);
+
+            }
         }
     }
 }
