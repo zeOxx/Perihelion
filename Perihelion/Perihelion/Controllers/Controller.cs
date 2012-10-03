@@ -49,6 +49,8 @@ namespace Perihelion.Controllers
 //             playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
 //             playerObject.updatePosition();
 
+
+            //Temp input
             inputHandler.updateInput();
 
             if (inputHandler.KeyDown(Keys.D))
