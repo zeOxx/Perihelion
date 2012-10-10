@@ -31,7 +31,7 @@ namespace Perihelion.Controllers
 
             //Change gamestate
 
-            checkInput(gameTime, inputHandler);
+            checkInput(gameTime, inputHandler, gameWorld);
 
             gameWorld.setPlayer(playerObject);
 
@@ -45,18 +45,31 @@ namespace Perihelion.Controllers
         }
 
         // Checks input
-        public void checkInput(GameTime gameTime, InputHandler inputHandler)
+        //Gameworld as argument is JUST FOR TESTING-PURPOSES
+        public void checkInput(GameTime gameTime, InputHandler inputHandler, Gameworld gameWorld)
         {
             //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
             //playerObject.updatePosition();
+            Vector2 tempVector = inputHandler.getMovementInputFromPlayer();
+            playerObject.update(tempVector);
 
-            playerObject.update(inputHandler.getMovementInputFromPlayer());
+
+            //playerObject.update(inputHandler.getMovementInputFromPlayer());
 
 
 
             //Temp input
             inputHandler.updateInput();
-            
+
+            if (inputHandler.KeyDown(Keys.X))
+            {
+                gameWorld.getCamera().Zoom += (float)0.01;
+            }
+
+            if (inputHandler.KeyDown(Keys.Z))
+            {
+                gameWorld.getCamera().Zoom -= (float)0.01;
+            }
             if (inputHandler.KeyDown(Keys.D))
             {
                 playerObject.updatePosition(1, 0);
