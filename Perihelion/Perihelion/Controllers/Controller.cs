@@ -52,6 +52,7 @@ namespace Perihelion.Controllers
              playerObject.update(inputHandler.getMovementInputFromPlayer());
 
 
+
             //Temp input
             inputHandler.updateInput();
 
