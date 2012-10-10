@@ -56,7 +56,7 @@ namespace Perihelion.Controllers
 
             //Temp input
             inputHandler.updateInput();
-
+            
             if (inputHandler.KeyDown(Keys.D))
             {
                 playerObject.updatePosition(1, 0);
