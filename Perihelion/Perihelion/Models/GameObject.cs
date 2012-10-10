@@ -98,7 +98,7 @@ namespace Perihelion.Models
         public void updatePosition()
         {
             position.X = position.X + velocity.X;
-            position.Y = position.Y + velocity.Y;
+            position.Y = position.Y - velocity.Y;
         }
 
         public void updateVelocity(Vector2 velocity)
