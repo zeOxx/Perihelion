@@ -49,8 +49,11 @@ namespace Perihelion.Controllers
         {
             //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
             //playerObject.updatePosition();
+            Vector2 tempVector = inputHandler.getMovementInputFromPlayer();
+            playerObject.update(tempVector);
 
-            playerObject.update(inputHandler.getMovementInputFromPlayer());
+
+            //playerObject.update(inputHandler.getMovementInputFromPlayer());
 
 
 
