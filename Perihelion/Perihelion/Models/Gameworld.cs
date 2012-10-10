@@ -14,10 +14,12 @@ namespace Perihelion.Models
     {
         private Player playerObject;
         private Collidable rock;
+        private Camera camera;
 
-        public Gameworld(ContentHolder contentHolder)
+        public Gameworld(ContentHolder contentHolder, Viewport view)
         {
             initializeGameworld(contentHolder);
+            camera = new Camera(view);
         }
 
         public Player getPlayer()
@@ -40,6 +42,12 @@ namespace Perihelion.Models
         {
             playerObject.Draw(spriteBatch);
             rock.Draw(spriteBatch);
+            camera.update(playerObject.getPosition());
+        }
+
+        public Camera getCamera()
+        {
+            return camera;
         }
     }
 }

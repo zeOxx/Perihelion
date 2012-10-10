@@ -35,11 +35,11 @@ namespace Perihelion
             this.view = view;
         }
 
-        public void update(GameTime gameTime, cameraTest picture)
+        public void update(Vector2 objectToFollow)
         {
-
-            this.center = new Vector2(picture.spritePosition.X + (picture.spriteRectangle.Width / 2 - 400)
-            , picture.spritePosition.Y + (picture.spriteRectangle.Height / 2 - 250));
+            this.center = objectToFollow;
+//             this.center = new Vector2(picture.spritePosition.X + (picture.spriteRectangle.Width / 2 - 400)
+//             , picture.spritePosition.Y + (picture.spriteRectangle.Height / 2 - 250));
 
             //this.transform = Matrix.CreateScale(new Vector3(this.zoom, this.zoom, 0)) *
             //Matrix.CreateTranslation(new Vector3(-this.center.X, -this.center.Y, 0));

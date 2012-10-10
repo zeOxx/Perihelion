@@ -50,7 +50,7 @@ namespace Perihelion
             gameController = new Controllers.Controller();
             contentHolder = new ContentHolder(this.Content);
             inputHandler = new InputHandler();
-            gameWorld = new Models.Gameworld(contentHolder);    //TODO SINGLETON
+            gameWorld = new Models.Gameworld(contentHolder, GraphicsDevice.Viewport);    //TODO SINGLETON
             base.Initialize();
         }
 
@@ -112,7 +112,7 @@ namespace Perihelion
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, gameWorld.getCamera().Transform);
             gameWorld.Draw(spriteBatch);
             spriteBatch.End();
 

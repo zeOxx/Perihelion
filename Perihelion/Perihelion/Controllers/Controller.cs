@@ -50,6 +50,7 @@ namespace Perihelion.Controllers
              playerObject.updatePosition();
 
 
+
             //Temp input
             inputHandler.updateInput();
 
