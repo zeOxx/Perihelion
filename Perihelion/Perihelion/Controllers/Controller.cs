@@ -82,7 +82,7 @@ namespace Perihelion.Controllers
             }
         }
 
-        public void updateBullets(Vector2 )
+        public void updateBullets(Vector2 motion)
         {
 
         }
