@@ -14,6 +14,7 @@ namespace Perihelion.Models
         protected Vector2 position;
         protected Vector2 velocity;
         private double rotationAngle = 0.0f;
+        protected float speed = 5.0f; // should be set in constructor
         
         /************************************************************************/
         /*                                                                      */
@@ -92,9 +93,9 @@ namespace Perihelion.Models
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
-        void update (float x, float y, Vector2 velocity)
+        public void update (Vector2 velocity)
         {
-            updatePosition(x, y);
+            updatePosition();
             updateVelocity(velocity);
             updateAngle(velocity);
         }
@@ -107,8 +108,8 @@ namespace Perihelion.Models
 
         public void updatePosition()
         {
-            position.X = position.X + velocity.X;
-            position.Y = position.Y - velocity.Y;
+            position.X = position.X + (velocity.X * speed);
+            position.Y = position.Y - (velocity.Y * speed);
         }
 
         public void updateVelocity(Vector2 velocity)
@@ -118,7 +119,9 @@ namespace Perihelion.Models
 
         public void updateAngle(Vector2 velocity)
         {
-            rotationAngle = Math.Atan2((double)velocity.X, (double)velocity.Y);
+            // Only updates the sprite if there is velocity.
+            if (velocity.X != 0.0f && velocity.Y != 0.0f)
+                rotationAngle = Math.Atan2((double)velocity.X, (double)velocity.Y);
         }
 
         public void Draw(SpriteBatch spriteBatch)
