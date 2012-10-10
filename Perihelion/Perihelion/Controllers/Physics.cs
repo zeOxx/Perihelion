@@ -18,12 +18,11 @@ namespace Perihelion.Controllers
         /************************************************************************/
         public bool checkCollision(GameObject go1, GameObject go2)
         {
-            if (go1.BoundingBox.Intersects(go2.BoundingBox)){
+            if (go1.BoundingBox.Intersects(go2.BoundingBox))
+            {
                 return true;
             }
             return false;
         }
-
-
     }
 }
