@@ -13,15 +13,24 @@ namespace Perihelion
     class Camera
     {
         private Matrix transform;
+        private Vector2 cameraOffset;
+        private Vector2 center;
+        private Viewport view;
+        float zoom = 1.0f;
+
+        //Constructor updates the view
+        public Camera(Viewport view)
+        {
+            this.view = view;
+            cameraOffset = new Vector2(view.Width/2, view.Height/2);
+        }
+
         public Matrix Transform
         {
             get { return this.transform; }
         }
 
-        private Vector2 center;
-        private Viewport view;
-
-        float zoom = 1.0f;
+        
 
         public float Zoom
         {
@@ -29,15 +38,11 @@ namespace Perihelion
             set { this.zoom = value; }
         }
 
-        //Constructor updates the view
-        public Camera(Viewport view)
-        {
-            this.view = view;
-        }
+        
 
         public void update(Vector2 objectToFollow)
         {
-            this.center = objectToFollow;
+            this.center = objectToFollow - cameraOffset;
 //             this.center = new Vector2(picture.spritePosition.X + (picture.spriteRectangle.Width / 2 - 400)
 //             , picture.spritePosition.Y + (picture.spriteRectangle.Height / 2 - 250));
 

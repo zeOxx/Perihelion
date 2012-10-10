@@ -15,6 +15,7 @@ namespace Perihelion.Controllers
         
         //************** VARIABLES ******************
         private Player playerObject;
+        private Projectile bullets;
 
         public Controller()
         {
