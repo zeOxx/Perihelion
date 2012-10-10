@@ -46,8 +46,8 @@ namespace Perihelion.Controllers
         // Checks input
         public void checkInput(GameTime gameTime, InputHandler inputHandler)
         {
-//             playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
-//             playerObject.updatePosition();
+             playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
+             playerObject.updatePosition();
 
 
             //Temp input
