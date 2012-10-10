@@ -38,6 +38,7 @@ namespace Perihelion
             set { this.zoom = value; }
         }
 
+
         
 
         public void update(Vector2 objectToFollow)

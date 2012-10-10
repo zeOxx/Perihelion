@@ -47,10 +47,10 @@ namespace Perihelion.Controllers
         // Checks input
         public void checkInput(GameTime gameTime, InputHandler inputHandler)
         {
-             //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
-             //playerObject.updatePosition();
+            //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
+            //playerObject.updatePosition();
 
-             playerObject.update(inputHandler.getMovementInputFromPlayer());
+            playerObject.update(inputHandler.getMovementInputFromPlayer());
 
 
 
@@ -80,6 +80,11 @@ namespace Perihelion.Controllers
                 playerObject.updatePosition(0, -1);
 
             }
+        }
+
+        public void updateBullets(Vector2 )
+        {
+
         }
     }
 }
