@@ -13,7 +13,7 @@ namespace Perihelion.Models
         protected Vector2 origin;
         protected Vector2 position;
         protected Vector2 velocity;
-        private float RotationAngle = 0.0f;
+        private double rotationAngle = 0.0f;
         
         /************************************************************************/
         /*                                                                      */
@@ -96,6 +96,7 @@ namespace Perihelion.Models
         {
             updatePosition(x, y);
             updateVelocity(velocity);
+            updateAngle(velocity);
         }
 
         public void updatePosition(float deltaX, float deltaY)
@@ -115,9 +116,16 @@ namespace Perihelion.Models
             this.velocity = velocity;
         }
 
+        public void updateAngle(Vector2 velocity)
+        {
+            rotationAngle = Math.Atan2((double)velocity.X, (double)velocity.Y);
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, Color.White);
+            //spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position, null, Color.White, (float)rotationAngle,
+                    origin, 1.0f, SpriteEffects.None, 0f);
         }
 
 
