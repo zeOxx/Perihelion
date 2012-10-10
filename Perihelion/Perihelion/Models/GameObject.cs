@@ -10,9 +10,11 @@ namespace Perihelion.Models
     class GameObject
     {
         protected Texture2D texture;
+        protected Vector2 origin;
         protected Vector2 position;
         protected Vector2 velocity;
-
+        private float RotationAngle = 0.0f;
+        
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
@@ -27,6 +29,7 @@ namespace Perihelion.Models
             setTexture(texture);
             setPosition(x, y);
             setVelocity(velocity);
+            setOrigin(texture);
         }
 
         /************************************************************************/
@@ -60,6 +63,12 @@ namespace Perihelion.Models
         void setVelocity (Vector2 velocity)
         {
             this.velocity = velocity;
+        }
+
+        void setOrigin(Texture2D texture)
+        {
+            // Sets the origin to the center of the object
+            this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
         }
 
         /************************************************************************/
