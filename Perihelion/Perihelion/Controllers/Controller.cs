@@ -50,13 +50,14 @@ namespace Perihelion.Controllers
         {
             //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
             //playerObject.updatePosition();
+
+            // what's the point of these when the code below is 100% exactly the same?
             Vector2 tempVector = inputHandler.getMovementInputFromPlayer();
             playerObject.update(tempVector);
-
-
             //playerObject.update(inputHandler.getMovementInputFromPlayer());
 
-
+            // Acceleration
+                // began fiddling with it but no success yet. :'(
 
             //Temp input
             inputHandler.updateInput();

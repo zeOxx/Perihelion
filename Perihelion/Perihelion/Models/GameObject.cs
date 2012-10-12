@@ -14,7 +14,8 @@ namespace Perihelion.Models
         protected Vector2 position;
         protected Vector2 velocity;
         private double rotationAngle = 0.0f;
-        protected float speed = 5.0f; // should be set in constructor
+        protected float maxSpeed = 0;
+        protected float speed = 0;
         
         /************************************************************************/
         /*                                                                      */
@@ -72,6 +73,15 @@ namespace Perihelion.Models
             this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
         }
 
+        protected void setSpeed(float speed)
+        {
+            this.speed = speed;
+        }
+
+        protected void setMaxSpeed(float maxSpeed)
+        {
+            this.maxSpeed = maxSpeed;
+        }
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
@@ -90,6 +100,15 @@ namespace Perihelion.Models
             return texture;
         }
 
+        public float getSpeed()
+        {
+            return this.speed;
+        }
+
+        public float getMaxSpeed()
+        {
+            return this.maxSpeed;
+        }
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
@@ -122,6 +141,12 @@ namespace Perihelion.Models
             // Only updates the sprite if there is velocity.
             if (velocity.X != 0.0f && velocity.Y != 0.0f)
                 rotationAngle = Math.Atan2((double)velocity.X, (double)velocity.Y);
+        }
+
+        public void updateSpeed(float speedUpdate)
+        {
+            if (speed < maxSpeed && speed > 0)
+                speed += speedUpdate;
         }
 
         public void Draw(SpriteBatch spriteBatch)
