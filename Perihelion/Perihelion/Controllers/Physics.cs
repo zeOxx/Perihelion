@@ -14,16 +14,19 @@ namespace Perihelion.Controllers
         }
 
         /************************************************************************/
-        /* Detects collisions between two GameObject objects                    */
+        /* Detects collisions between for a GameObject on other objects         */
         /************************************************************************/
-        public bool checkCollision(GameObject go1, GameObject go2)
+        public bool checkCollision(GameObject go1, GameObject[] go2)
         {
-            if (go1.BoundingBox.Intersects(go2.BoundingBox)){
-                return true;
+            int i;
+            for (i = 0; i < go2.Length; i++)
+            {
+                if (go1.BoundingBox.Intersects(go2[i].BoundingBox))
+                {
+                    return true;
+                }
             }
             return false;
         }
-
-
     }
 }

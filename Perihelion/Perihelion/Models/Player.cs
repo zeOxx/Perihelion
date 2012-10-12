@@ -35,6 +35,10 @@ namespace Perihelion.Models
             setWellMultiplier(1);
             setWellStatus(0);
             setAuxiliaryPower(100);
+
+            // Temp
+            setSpeed(1);
+            setMaxSpeed(5);
         }
 
         public Player(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)

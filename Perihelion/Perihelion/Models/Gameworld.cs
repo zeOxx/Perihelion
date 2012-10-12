@@ -15,6 +15,7 @@ namespace Perihelion.Models
         private Player playerObject;
         private Collidable rock;
         private Camera camera;
+        private Projectile[] playerBullets;
 
         public Gameworld(ContentHolder contentHolder, Viewport view)
         {
