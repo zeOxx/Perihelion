@@ -9,33 +9,28 @@ namespace Perihelion.Models
 {
     class Interface : GameObject
     {
-        // This determines the placement of the interface element. This tells HUD.cs where to draw it.
-        //  THIS IS NOT USED AS I DON'T THINK IT'LL ACTUALLY DO ANYTHING EASIER. LEAVING IT FOR NOW
-        String placement;
+        private bool enabled = true;
 
+        // THIS CLASS EXISTS SO WE DON'T HAVE TO CALL GAMEOBJECT DIRECTLY RIGHT NOW.
         /************************************************************************/
         /* Constructor                                                          */
         /************************************************************************/
-        public Interface(Texture2D texture, float x, float y, Vector2 velocity, String placement) 
+        public Interface(Texture2D texture, float x, float y, Vector2 velocity) 
             : base(texture, x, y, velocity)
         {
-            setPlacement(placement);
+            // nothing
+            setOriginZero();
         }
 
-        /************************************************************************/
-        /* Setters                                                              */
-        /************************************************************************/
-        private void setPlacement(String placement)
+        public bool Enabled
         {
-            this.placement = placement;
+            get { return this.enabled; }
+            set { this.enabled = value; }
         }
 
-        /************************************************************************/
-        /* Getters                                                              */
-        /************************************************************************/
-        public String getPlacement()
+        public void updateInterfacePosition()
         {
-            return placement;
+
         }
     }
 }

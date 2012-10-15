@@ -73,6 +73,12 @@ namespace Perihelion.Models
             this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
         }
 
+        public void setOriginZero()
+        {
+            // Sets the origin to 0,0
+            this.origin = new Vector2(0, 0);
+        }
+
         protected void setSpeed(float speed)
         {
             this.speed = speed;

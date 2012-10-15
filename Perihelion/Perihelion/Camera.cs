@@ -38,8 +38,15 @@ namespace Perihelion
             set { this.zoom = value; }
         }
 
+        public Vector2 Center
+        {
+            get { return this.center; }
+        }
 
-        
+        public Viewport View
+        {
+            get { return this.view; }
+        }
 
         public void update(Vector2 objectToFollow)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 
 namespace Perihelion
@@ -12,33 +13,24 @@ namespace Perihelion
         /************************************************************************/
         /* Preparing objects                                                    */
         /************************************************************************/
-        Models.Interface HealthBar;
-        Models.Interface AuxBar;
-        Models.Interface Special;
+        Models.Interface HealthAuxBar;
+        //Models.Interface Special;
 
         /************************************************************************/
         /* Positional vectors                                                   */
         /************************************************************************/
         // THESE ARE ZERO BECAUSE THE CAMERA IS NOT IN PLACE YET.
-        Vector2 healthBarPosition = Vector2.Zero;
-        Vector2 auxBarPosition = Vector2.Zero;
-        Vector2 specialPosition = Vector2.Zero;
+        Vector2 healthBarAuxPosition;
+        //Vector2 specialPosition = Vector2.Zero;
 
         /************************************************************************/
         /* Constructor                                                          */
         /************************************************************************/
-        public HUD()
+        public HUD(ContentHolder contentHolder, Vector2 camCenter, Camera camera)
         {
-            // TODO:
-            // Textures for the objects are not being set yet. so fix it!
+            setHudPositions(camCenter, camera);
 
-            /*
-             * Since textures are not set and placement is still there these do not work, so I commented them out.
-             * 
-            HealthBar = new Models.Interface(ContentHolder.healthBar, healthBarPosition.X, healthBarPosition.Y, null, null);
-            AuxBar = new Models.Interface(ContentHolder.auxBar, auxBarPosition.X, auxBarPosition.Y, null, null);
-            Special = new Models.Interface(ContentHolder.special, specialPosition.X, specialPosition.Y, null, null);
-             */
+            HealthAuxBar = new Models.Interface(contentHolder.healthAuxBar, healthBarAuxPosition.X, healthBarAuxPosition.Y, new Vector2(0, 0));
         }
 
         /************************************************************************/
@@ -51,9 +43,19 @@ namespace Perihelion
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            HealthBar.Draw(spriteBatch);
-            AuxBar.Draw(spriteBatch);
-            Special.Draw(spriteBatch);
+            HealthAuxBar.Draw(spriteBatch);
+            //Special.Draw(spriteBatch);
+        }
+
+        public void setHudPositions(Vector2 camCenter, Camera camera)
+        {
+            healthBarAuxPosition = new Vector2((camCenter.X - camera.View.Width/2) - 10, 
+                                                (camCenter.Y - camera.View.Height/2) - 10);
+        }
+
+        public void updateHudPositions(Vector2 camCenter)
+        {
+
         }
     }
 }

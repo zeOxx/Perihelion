@@ -15,7 +15,7 @@ namespace Perihelion.Controllers
         
         //************** VARIABLES ******************
         private Player playerObject;
-        private Projectile bullets;
+        //private Projectile bullets;
 
         public Controller()
         {
@@ -73,32 +73,32 @@ namespace Perihelion.Controllers
             }
             if (inputHandler.KeyDown(Keys.D))
             {
-                playerObject.updatePosition(1, 0);
+                playerObject.updatePosition(5, 0);
 
             }
 
             if (inputHandler.KeyDown(Keys.A))
             {
-                playerObject.updatePosition(-1, 0);
+                playerObject.updatePosition(-5, 0);
 
             }
 
             if (inputHandler.KeyDown(Keys.S))
             {
-                playerObject.updatePosition(0, 1);
+                playerObject.updatePosition(0, 5);
             }
 
 
             if (inputHandler.KeyDown(Keys.W))
             {
-                playerObject.updatePosition(0, -1);
+                playerObject.updatePosition(0, -5);
 
             }
         }
 
-        public void updateBullets(Vector2 motion)
-        {
-
-        }
+//         public void updateBullets(Vector2 motion)
+//         {
+// 
+//         }
     }
 }
