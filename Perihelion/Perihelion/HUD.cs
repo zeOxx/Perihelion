@@ -13,15 +13,15 @@ namespace Perihelion
         /************************************************************************/
         /* Preparing objects                                                    */
         /************************************************************************/
-        Models.Interface HealthAuxBar;
-        //Models.Interface Special;
+        Models.Interface healthAuxBar;
+        Models.Interface special;
 
         /************************************************************************/
         /* Positional vectors                                                   */
         /************************************************************************/
         // THESE ARE ZERO BECAUSE THE CAMERA IS NOT IN PLACE YET.
-        Vector2 healthBarAuxPosition;
-        //Vector2 specialPosition = Vector2.Zero;
+        Vector2 healthAuxBarPosition;
+        Vector2 specialPosition;
 
         /************************************************************************/
         /* Constructor                                                          */
@@ -30,7 +30,8 @@ namespace Perihelion
         {
             setHudPositions(camCenter, camera);
 
-            HealthAuxBar = new Models.Interface(contentHolder.healthAuxBar, healthBarAuxPosition.X, healthBarAuxPosition.Y, new Vector2(0, 0));
+            healthAuxBar = new Models.Interface(contentHolder.healthAuxBar, healthAuxBarPosition.X, healthAuxBarPosition.Y, new Vector2(0, 0));
+            special = new Models.Interface(contentHolder.special, specialPosition.X, specialPosition.Y, new Vector2(0, 0));
         }
 
         /************************************************************************/
@@ -38,25 +39,27 @@ namespace Perihelion
         /************************************************************************/
         public void update()
         {
+            healthAuxBar.setPosition(healthAuxBarPosition.X, healthAuxBarPosition.Y);
+            special.setPosition(specialPosition.X, specialPosition.Y);
             // Calls update to all the objects to check health etc for the player. Yet to be implemented
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            HealthAuxBar.Draw(spriteBatch);
-            //Special.Draw(spriteBatch);
+            healthAuxBar.Draw(spriteBatch);
+            special.Draw(spriteBatch);
         }
 
         public void setHudPositions(Vector2 camCenter, Camera camera)
         {
-            healthBarAuxPosition = new Vector2((camCenter.X - 10) - 520, 
-                                                (camCenter.Y - 10) - 240);
+            healthAuxBarPosition = new Vector2(camCenter.X + 10, camCenter.Y + 10);
+            specialPosition = new Vector2(camCenter.X + 10, camCenter.Y + 646);
         }
 
         public void updateHudPositions(Vector2 camCenter)
         {
-            healthBarAuxPosition = new Vector2((camCenter.X - 10) - 520,
-                                                (camCenter.Y - 10) - 240);
+            healthAuxBarPosition = new Vector2(camCenter.X + 10, camCenter.Y + 10);
+            specialPosition = new Vector2(camCenter.X + 10, camCenter.Y + 646);
         }
     }
 }

@@ -31,9 +31,7 @@ namespace Perihelion
 
             // HUD
             healthAuxBar = content.Load<Texture2D>("hud_healthAux");
-            /*
-             * special = content.Load<Texture2D>("special");
-             */
+            special = content.Load<Texture2D>("hud_special_01");
         }
     }
 }

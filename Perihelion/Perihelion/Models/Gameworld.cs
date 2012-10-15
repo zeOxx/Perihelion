@@ -50,6 +50,8 @@ namespace Perihelion.Models
 
             rock[0] = new Collidable(contentHolder.textureRock01, 150, 300, Vector2.Zero);
             rock[1] = new Collidable(contentHolder.textureRock02, -250, -330, Vector2.Zero);
+            rock[2] = new Collidable(contentHolder.textureRock01, 500, 300, Vector2.Zero);
+            rock[3] = new Collidable(contentHolder.textureRock02, -100, 250, Vector2.Zero);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -58,12 +60,15 @@ namespace Perihelion.Models
             hud.Draw(spriteBatch);
             rock[0].Draw(spriteBatch);
             rock[1].Draw(spriteBatch);
+            rock[2].Draw(spriteBatch);
+            rock[3].Draw(spriteBatch);
         }
 
         public void update()
         {
             camera.update(playerObject.getPosition());
             hud.updateHudPositions(camera.Center);
+            hud.update();
         }
 
         //Returns camera to draw function

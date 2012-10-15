@@ -57,7 +57,7 @@ namespace Perihelion.Models
             this.texture = texture;
         }
 
-        void setPosition (float x, float y)
+        public void setPosition (float x, float y)
         {
             this.position = new Vector2(x, y);
         }
