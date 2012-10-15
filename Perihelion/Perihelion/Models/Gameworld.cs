@@ -58,9 +58,13 @@ namespace Perihelion.Models
             hud.Draw(spriteBatch);
             rock[0].Draw(spriteBatch);
             rock[1].Draw(spriteBatch);
-            camera.update(playerObject.getPosition());
         }
 
+        public void update()
+        {
+            camera.update(playerObject.getPosition());
+            hud.updateHudPositions(camera.Center);
+        }
 
         //Returns camera to draw function
         public Camera getCamera()

@@ -49,13 +49,14 @@ namespace Perihelion
 
         public void setHudPositions(Vector2 camCenter, Camera camera)
         {
-            healthBarAuxPosition = new Vector2((camCenter.X - camera.View.Width/2) - 10, 
-                                                (camCenter.Y - camera.View.Height/2) - 10);
+            healthBarAuxPosition = new Vector2((camCenter.X - 10) - 520, 
+                                                (camCenter.Y - 10) - 240);
         }
 
         public void updateHudPositions(Vector2 camCenter)
         {
-
+            healthBarAuxPosition = new Vector2((camCenter.X - 10) - 520,
+                                                (camCenter.Y - 10) - 240);
         }
     }
 }

@@ -35,6 +35,8 @@ namespace Perihelion.Controllers
 
             gameWorld.setPlayer(playerObject);
 
+            gameWorld.update();
+
             return gameWorld;
         }
 
