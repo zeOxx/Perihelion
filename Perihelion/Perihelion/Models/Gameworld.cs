@@ -61,6 +61,8 @@ namespace Perihelion.Models
             camera.update(playerObject.getPosition());
         }
 
+
+        //Returns camera to draw function
         public Camera getCamera()
         {
             return camera;
