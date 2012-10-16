@@ -37,7 +37,7 @@ namespace Perihelion.Models
             setAuxiliaryPower(100);
 
             // Temp
-            setSpeed(1);
+            setSpeed(5);
             setMaxSpeed(5);
         }
 

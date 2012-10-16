@@ -26,9 +26,9 @@ namespace Perihelion
         /************************************************************************/
         /* Constructor                                                          */
         /************************************************************************/
-        public HUD(ContentHolder contentHolder, Vector2 camCenter, Camera camera)
+        public HUD(ContentHolder contentHolder, Vector2 camCenter)
         {
-            setHudPositions(camCenter, camera);
+            updateHudPositions(camCenter);
 
             healthAuxBar = new Models.Interface(contentHolder.healthAuxBar, healthAuxBarPosition.X, healthAuxBarPosition.Y, new Vector2(0, 0));
             special = new Models.Interface(contentHolder.special, specialPosition.X, specialPosition.Y, new Vector2(0, 0));
@@ -48,12 +48,6 @@ namespace Perihelion
         {
             healthAuxBar.Draw(spriteBatch);
             special.Draw(spriteBatch);
-        }
-
-        public void setHudPositions(Vector2 camCenter, Camera camera)
-        {
-            healthAuxBarPosition = new Vector2(camCenter.X + 10, camCenter.Y + 10);
-            specialPosition = new Vector2(camCenter.X + 10, camCenter.Y + 646);
         }
 
         public void updateHudPositions(Vector2 camCenter)

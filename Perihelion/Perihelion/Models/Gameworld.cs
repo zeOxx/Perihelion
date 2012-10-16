@@ -28,7 +28,7 @@ namespace Perihelion.Models
         {
             initializeGameworld(contentHolder);
             camera = new Camera(view);
-            hud = new HUD(contentHolder, camera.Center, camera);
+            hud = new HUD(contentHolder, camera.Center);
         }
 
         public Player getPlayer()
