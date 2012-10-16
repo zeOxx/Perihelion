@@ -13,7 +13,7 @@ namespace Perihelion.Models
         protected Vector2 origin;
         protected Vector2 position;
         protected Vector2 velocity;
-        private double rotationAngle = 0.0f;
+        private double rotationAngle = 0.0;
         protected float maxSpeed = 0;
         protected float speed = 0;
         
@@ -118,7 +118,7 @@ namespace Perihelion.Models
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
-        public void update (Vector2 velocity)
+        public virtual void update (Vector2 velocity)
         {
             updatePosition();
             updateVelocity(velocity);
@@ -155,7 +155,7 @@ namespace Perihelion.Models
                 speed += speedUpdate;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(texture, position, null, Color.White, (float)rotationAngle,
