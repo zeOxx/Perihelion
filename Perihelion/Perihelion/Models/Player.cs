@@ -18,8 +18,7 @@ namespace Perihelion.Models
         
         private float wellMultiplier;
         private int wellStatus;
-        private int auxiliaryPower;
-        
+        private int auxiliaryPower;   
 
         /************************************************************************/
         /*  Constructors for Player object                                      */
@@ -45,9 +44,10 @@ namespace Perihelion.Models
             setMaxSpeed(5);
         }
 
-        public Player(Texture2D texture, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)
+        public Player(Texture2D texture, Texture2D texture_turret, float x, float y, Vector2 velocity, int currentHealth, int maxHealth, float damageMultiplier, float attackMultiplier, float wellMultiplier, int wellStatus, int auxiliaryPower)
             : base(texture, x, y, velocity, currentHealth, maxHealth, damageMultiplier, attackMultiplier)
         {
+            setTurretTexture(texture_turret);
             setWellMultiplier(wellMultiplier);
             setWellStatus(wellStatus);
             setAuxiliaryPower(auxiliaryPower);
