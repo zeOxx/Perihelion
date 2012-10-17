@@ -146,8 +146,13 @@ namespace Perihelion.Models
         {
             // Only updates the sprite if there is velocity.
             if (velocity.X != 0.0f && velocity.Y != 0.0f)
+            {
+                System.Diagnostics.Debug.WriteLine("Boooi");
                 rotationAngle = Math.Atan2((double)velocity.X, (double)velocity.Y);
+            }
         }
+
+               
 
         public void updateSpeed(float speedUpdate)
         {

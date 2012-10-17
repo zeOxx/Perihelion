@@ -115,6 +115,7 @@ namespace Perihelion.Models
         public void updateTurretAngle(Vector2 rightStick)
         {
             if (rightStick.X != 0.0f && rightStick.Y != 0.0f)
+                
                 turretRotationAngle = Math.Atan2((double)rightStick.X, (double)rightStick.Y);
         }
 
