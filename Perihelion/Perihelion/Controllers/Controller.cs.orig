@@ -15,7 +15,12 @@ namespace Perihelion.Controllers
         
         //************** VARIABLES ******************
         private Player playerObject;
+<<<<<<< HEAD
         private Projectile bullets;
+        Camera camera;
+=======
+        //private Projectile bullets;
+>>>>>>> c515dd242efdfa47e0827f6f61280bcdba9ccc3b
 
         public Controller()
         {
@@ -31,9 +36,11 @@ namespace Perihelion.Controllers
 
             //Change gamestate
 
-            checkInput(gameTime, inputHandler, gameWorld);
+            checkInput(gameTime, inputHandler);
 
             gameWorld.setPlayer(playerObject);
+
+            gameWorld.update();
 
             return gameWorld;
         }
@@ -46,55 +53,59 @@ namespace Perihelion.Controllers
 
         // Checks input
         //Gameworld as argument is JUST FOR TESTING-PURPOSES
-        public void checkInput(GameTime gameTime, InputHandler inputHandler, Gameworld gameWorld)
+        public void checkInput(GameTime gameTime, InputHandler inputHandler)
         {
-            Vector2 tempVector = inputHandler.getMovementInputFromPlayer();
-            playerObject.update(tempVector);
+            //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
+            //playerObject.updatePosition();
+
+<<<<<<< HEAD
+=======
+            Vector2 movementVector = inputHandler.getMovementInputFromPlayer();
+            Vector2 rightStick = inputHandler.getShootingInputFromPlayer();
+            playerObject.update(movementVector, rightStick);
 
 
-            //playerObject.update(inputHandler.getMovementInputFromPlayer());
-
-
+>>>>>>> c515dd242efdfa47e0827f6f61280bcdba9ccc3b
             //Temp input
             inputHandler.updateInput();
 
             if (inputHandler.KeyDown(Keys.X))
             {
-                gameWorld.getCamera().Zoom += (float)0.01;
+                camera.Zoom += (float)0.01;
             }
 
             if (inputHandler.KeyDown(Keys.Z))
             {
-                gameWorld.getCamera().Zoom -= (float)0.01;
+                camera.Zoom -= (float)0.01;
             }
             if (inputHandler.KeyDown(Keys.D))
             {
-                playerObject.updatePosition(1, 0);
+                playerObject.updatePosition(5, 0);
 
             }
 
             if (inputHandler.KeyDown(Keys.A))
             {
-                playerObject.updatePosition(-1, 0);
+                playerObject.updatePosition(-5, 0);
 
             }
 
             if (inputHandler.KeyDown(Keys.S))
             {
-                playerObject.updatePosition(0, 1);
+                playerObject.updatePosition(0, 5);
             }
 
 
             if (inputHandler.KeyDown(Keys.W))
             {
-                playerObject.updatePosition(0, -1);
+                playerObject.updatePosition(0, -5);
 
             }
         }
 
-        public void updateBullets(Vector2 motion)
-        {
-
-        }
+//         public void updateBullets(Vector2 motion)
+//         {
+// 
+//         }
     }
 }
