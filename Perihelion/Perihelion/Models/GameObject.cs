@@ -13,8 +13,9 @@ namespace Perihelion.Models
         protected Vector2 origin;
         protected Vector2 position;
         protected Vector2 velocity;
-        private double rotationAngle = 0.0f;
-        protected float speed = 5.0f; // should be set in constructor
+        private double rotationAngle = 0.0;
+        protected float maxSpeed = 0;
+        protected float speed = 0;
         
         /************************************************************************/
         /*                                                                      */
@@ -56,7 +57,7 @@ namespace Perihelion.Models
             this.texture = texture;
         }
 
-        void setPosition (float x, float y)
+        public void setPosition (float x, float y)
         {
             this.position = new Vector2(x, y);
         }
@@ -72,6 +73,21 @@ namespace Perihelion.Models
             this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
         }
 
+        public void setOriginZero()
+        {
+            // Sets the origin to 0,0
+            this.origin = new Vector2(0, 0);
+        }
+
+        protected void setSpeed(float speed)
+        {
+            this.speed = speed;
+        }
+
+        protected void setMaxSpeed(float maxSpeed)
+        {
+            this.maxSpeed = maxSpeed;
+        }
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
@@ -90,10 +106,19 @@ namespace Perihelion.Models
             return texture;
         }
 
+        public float getSpeed()
+        {
+            return this.speed;
+        }
+
+        public float getMaxSpeed()
+        {
+            return this.maxSpeed;
+        }
         /************************************************************************/
         /*                                                                      */
         /************************************************************************/
-        public void update (Vector2 velocity)
+        public virtual void update (Vector2 velocity)
         {
             updatePosition();
             updateVelocity(velocity);
@@ -124,7 +149,13 @@ namespace Perihelion.Models
                 rotationAngle = Math.Atan2((double)velocity.X, (double)velocity.Y);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void updateSpeed(float speedUpdate)
+        {
+            if (speed < maxSpeed && speed > 0)
+                speed += speedUpdate;
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(texture, position, null, Color.White, (float)rotationAngle,
