@@ -15,7 +15,7 @@ namespace Perihelion.Controllers
         
         //************** VARIABLES ******************
         private Player playerObject;
-        //private Projectile bullets;
+        private Projectile bullets;
 
         public Controller()
         {
@@ -35,8 +35,6 @@ namespace Perihelion.Controllers
 
             gameWorld.setPlayer(playerObject);
 
-            gameWorld.update();
-
             return gameWorld;
         }
 
@@ -50,12 +48,11 @@ namespace Perihelion.Controllers
         //Gameworld as argument is JUST FOR TESTING-PURPOSES
         public void checkInput(GameTime gameTime, InputHandler inputHandler, Gameworld gameWorld)
         {
-            //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
-            //playerObject.updatePosition();
+            Vector2 tempVector = inputHandler.getMovementInputFromPlayer();
+            playerObject.update(tempVector);
 
-            Vector2 movementVector = inputHandler.getMovementInputFromPlayer();
-            Vector2 rightStick = inputHandler.getShootingInputFromPlayer();
-            playerObject.update(movementVector, rightStick);
+
+            //playerObject.update(inputHandler.getMovementInputFromPlayer());
 
 
             //Temp input
@@ -72,32 +69,32 @@ namespace Perihelion.Controllers
             }
             if (inputHandler.KeyDown(Keys.D))
             {
-                playerObject.updatePosition(5, 0);
+                playerObject.updatePosition(1, 0);
 
             }
 
             if (inputHandler.KeyDown(Keys.A))
             {
-                playerObject.updatePosition(-5, 0);
+                playerObject.updatePosition(-1, 0);
 
             }
 
             if (inputHandler.KeyDown(Keys.S))
             {
-                playerObject.updatePosition(0, 5);
+                playerObject.updatePosition(0, 1);
             }
 
 
             if (inputHandler.KeyDown(Keys.W))
             {
-                playerObject.updatePosition(0, -5);
+                playerObject.updatePosition(0, -1);
 
             }
         }
 
-//         public void updateBullets(Vector2 motion)
-//         {
-// 
-//         }
+        public void updateBullets(Vector2 motion)
+        {
+
+        }
     }
 }
