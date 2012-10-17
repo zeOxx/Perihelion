@@ -53,7 +53,7 @@ namespace Perihelion
         public void updateHudPositions(Camera camera)
         {
             healthAuxBarPosition = new Vector2(camera.Center.X - (camera.View.Width/2 - 10), camera.Center.Y - (camera.View.Height/2 - 10));
-            specialPosition = new Vector2(camera.Center.X - (camera.View.Width/2 -10), camera.Center.Y + (camera.View.Height/2 - special.getTexture().Height - 10));
+            specialPosition = new Vector2(camera.Center.X - (camera.View.Width/2 -10), camera.Center.Y + (camera.View.Height/2 - 74));
         }
     }
 }

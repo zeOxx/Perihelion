@@ -30,12 +30,6 @@ namespace Perihelion
             get { return this.transform; }
         }
 
-        public Vector2 Center
-        {
-            get { return this.center; }
-        }
-
-
         public float Zoom
         {
             get { return this.zoom; }
@@ -73,5 +67,3 @@ namespace Perihelion
         }
     }
 }
-
-s
