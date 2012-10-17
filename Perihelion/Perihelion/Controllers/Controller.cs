@@ -48,14 +48,11 @@ namespace Perihelion.Controllers
         //Gameworld as argument is JUST FOR TESTING-PURPOSES
         public void checkInput(GameTime gameTime, InputHandler inputHandler, Gameworld gameWorld)
         {
-            //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
-            //playerObject.updatePosition();
             Vector2 tempVector = inputHandler.getMovementInputFromPlayer();
             playerObject.update(tempVector);
 
 
             //playerObject.update(inputHandler.getMovementInputFromPlayer());
-
 
 
             //Temp input

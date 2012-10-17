@@ -30,11 +30,6 @@ namespace Perihelion
             get { return this.transform; }
         }
 
-        public Vector2 Center
-        {
-            get { return this.center; }
-        }
-
         
 
         public float Zoom
@@ -59,8 +54,17 @@ namespace Perihelion
 
             this.transform = Matrix.CreateTranslation(new Vector3(-this.center.X, -this.center.Y, 0)) *
                 Matrix.CreateScale(new Vector3(this.zoom, this.zoom, 0)) *
+<<<<<<< HEAD
                 Matrix.CreateTranslation(new Vector3(view.Width/2, view.Height/2, 0));
                 
+        }
+
+        public void getZoomInput()
+        {
+
+=======
+                Matrix.CreateTranslation(new Vector3(this.view.Width / 2, this.view.Height / 2, 0));
+>>>>>>> 3ce53caa9462168e01b57e5610ad8234be649425
         }
     }
 }

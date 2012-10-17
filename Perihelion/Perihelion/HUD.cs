@@ -13,8 +13,8 @@ namespace Perihelion
         /************************************************************************/
         /* Preparing objects                                                    */
         /************************************************************************/
-        Models.Interface healthAuxBar;
-        Models.Interface special;
+        private Models.Interface healthAuxBar;
+        private Models.Interface special;
 
         /************************************************************************/
         /* Positional vectors                                                   */
@@ -26,9 +26,9 @@ namespace Perihelion
         /************************************************************************/
         /* Constructor                                                          */
         /************************************************************************/
-        public HUD(ContentHolder contentHolder, Vector2 camCenter)
+        public HUD(ContentHolder contentHolder, Camera camera)
         {
-            updateHudPositions(camCenter);
+            updateHudPositions(camera);
 
             healthAuxBar = new Models.Interface(contentHolder.healthAuxBar, healthAuxBarPosition.X, healthAuxBarPosition.Y, new Vector2(0, 0));
             special = new Models.Interface(contentHolder.special, specialPosition.X, specialPosition.Y, new Vector2(0, 0));
@@ -50,10 +50,10 @@ namespace Perihelion
             special.Draw(spriteBatch);
         }
 
-        public void updateHudPositions(Vector2 camCenter)
+        public void updateHudPositions(Camera camera)
         {
-            healthAuxBarPosition = new Vector2(camCenter.X + 10, camCenter.Y + 10);
-            specialPosition = new Vector2(camCenter.X + 10, camCenter.Y + 646);
+            healthAuxBarPosition = new Vector2(camera.Center.X - (camera.View.Width/2 - 10), camera.Center.Y - (camera.View.Height/2 - 10));
+            specialPosition = new Vector2(camera.Center.X - (camera.View.Width/2 -10), camera.Center.Y + (camera.View.Height/2 - special.getTexture().Height - 10));
         }
     }
 }
