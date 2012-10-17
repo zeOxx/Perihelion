@@ -16,6 +16,7 @@ namespace Perihelion.Controllers
         //************** VARIABLES ******************
         private Player playerObject;
         private Projectile bullets;
+        Camera camera;
 
         public Controller()
         {
@@ -31,7 +32,7 @@ namespace Perihelion.Controllers
 
             //Change gamestate
 
-            checkInput(gameTime, inputHandler, gameWorld);
+            checkInput(gameTime, inputHandler);
 
             gameWorld.setPlayer(playerObject);
 
@@ -46,7 +47,7 @@ namespace Perihelion.Controllers
 
         // Checks input
         //Gameworld as argument is JUST FOR TESTING-PURPOSES
-        public void checkInput(GameTime gameTime, InputHandler inputHandler, Gameworld gameWorld)
+        public void checkInput(GameTime gameTime, InputHandler inputHandler)
         {
             //playerObject.updateVelocity(inputHandler.getMovementInputFromPlayer());
             //playerObject.updatePosition();
@@ -56,19 +57,17 @@ namespace Perihelion.Controllers
 
             //playerObject.update(inputHandler.getMovementInputFromPlayer());
 
-
-
             //Temp input
             inputHandler.updateInput();
 
             if (inputHandler.KeyDown(Keys.X))
             {
-                gameWorld.getCamera().Zoom += (float)0.01;
+                camera.Zoom += (float)0.01;
             }
 
             if (inputHandler.KeyDown(Keys.Z))
             {
-                gameWorld.getCamera().Zoom -= (float)0.01;
+                camera.Zoom -= (float)0.01;
             }
             if (inputHandler.KeyDown(Keys.D))
             {
