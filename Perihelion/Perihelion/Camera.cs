@@ -22,7 +22,7 @@ namespace Perihelion
         public Camera(Viewport view)
         {
             this.view = view;
-            cameraOffset = new Vector2(view.Width/2, view.Height/2);
+            //cameraOffset = new Vector2(view.Width/2, view.Height/2);
         }
 
         public Matrix Transform
@@ -57,8 +57,9 @@ namespace Perihelion
             //Matrix.CreateTranslation(new Vector3(-this.center.X, -this.center.Y, 0));
 
             this.transform = Matrix.CreateTranslation(new Vector3(-this.center.X, -this.center.Y, 0)) *
-                Matrix.CreateScale(new Vector3(this.zoom, this.zoom, 0)); //*
-                //Matrix.CreateTranslation(new Vector3(this.view.Width / 2, this.view.Height / 2, 0));
+                Matrix.CreateScale(new Vector3(this.zoom, this.zoom, 0)) *
+                Matrix.CreateTranslation(new Vector3(view.Width/2, view.Height/2, 0));
+                
         }
 
         public void getZoomInput()
